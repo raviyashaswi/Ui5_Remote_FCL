@@ -1,0 +1,175 @@
+{
+  "_version": "1.76.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.19.3",
+      "toolsId": "ea5b43bf-c536-44b0-8e31-d0a2bb9b5c83"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/admin/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.142.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "IncentiveItemModel": {
+        "type": "sap.ui.model.json.JSONModel",
+        "settings": {"defaultBindingMode": "TwoWay"}
+      }  
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "project1.view",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "EmployeeView",
+          "pattern": "",
+          "target": [
+            "TargetEmployee"
+                    ]
+        },
+        {
+          "name": "RRView",
+          "pattern": "Remote/{eID}",
+          "target": [
+            "TargetRR"
+                    ]
+        },
+        {
+          "name": "RemoteView",
+          "pattern": "",
+          "target": [
+            "TargetRemote"
+                    ]
+        },
+        {
+          "name":"PHView",
+          "pattern":"",
+          "target":[
+            "TargetPH"
+                    ]
+        },
+        {
+          "name": "RequestView",
+          "pattern":"Request/{id}",
+          "target":[
+            "TargetRequest"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetEmployee": {
+          "id": "Employee",
+          "name": "Employee",
+          "viewType": "XML",
+          "transition":"slide"
+        },
+        "TargetRR": {
+          "id": "RR",
+          "name": "RR",
+          "viewType": "XML",
+          "transition":"slide"
+        },
+        "TargetRemote": {
+          "id": "Remote",
+          "name": "Remote",
+          "viewType": "XML",
+          "transition":"slide"
+        },
+        "TargetPH":{
+          "id":"PH",
+          "name":"PH",
+          "viewType": "XML",
+          "transition":"slide"
+        },
+        "TargetRequest":{
+          "id": "Request",
+          "name": "Request",
+          "viewType": "XML",
+          "transition":"slide"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "project1.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

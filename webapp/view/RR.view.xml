@@ -1,0 +1,22 @@
+<mvc:View controllerName="project1.controller.RR" displayBlock="true"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    >
+    <m:Page id="_IDGenPage2" title="RR VIEW">
+        
+        <f:FlexibleColumnLayout 
+            id="layout" 
+            stateChange=".onStateChanged"
+            backgroundDesign="Translucent"
+            >
+            <f:beginColumnPages>
+                <mvc:XMLView id="_IDGenXMLView1"  viewName="project1.view.Remote"/>
+            </f:beginColumnPages>             
+            <f:midColumnPages>
+                <!-- <mvc:XMLView id="_IDGenXMLView2"  viewName="project1.view.Request"/> -->
+            </f:midColumnPages> 
+        </f:FlexibleColumnLayout>
+
+    </m:Page>
+</mvc:View>

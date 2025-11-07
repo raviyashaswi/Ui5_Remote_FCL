@@ -1,0 +1,10 @@
+<mvc:View controllerName="project1.controller.RR" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    >
+    <App id="app">
+        
+      
+    </App>
+</mvc:View>
