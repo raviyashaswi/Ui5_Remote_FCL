@@ -6,6 +6,12 @@ sap.ui.define([
 	return {
 		statusText(sStatus) {
 			switch (sStatus) {
+				case  0:
+					return ("Pending");
+				case 1:
+					return ("Accepted");
+				case  -1:
+					return ("Rejected");
 				case "0":
 					return ("Pending");
 				case "1":
@@ -14,15 +20,31 @@ sap.ui.define([
 					return ("Rejected");
 			}
 		},
+		
 		statusColor(sStatus) {
 			switch (sStatus) {
 				case "0":
-					return ValueState.Information;;
+					return ValueState.Information;
 				case "1":
 					return ValueState.Success;
 				case "-1":
 					return ValueState.Error;
+				case 0:
+					return ValueState.Information;
+				case 1:
+					return ValueState.Success;
+				case -1:
+					return ValueState.Error;
 			}
-		}
+		},
+		statusIcon(sStatus) {
+			switch (sStatus) {
+				case 0:
+					return ("sap-icon://pending");
+				case 1:
+					return ("sap-icon://accept");
+				case -1:
+					return ("sap-icon://decline");
+			}}
 	};
 });

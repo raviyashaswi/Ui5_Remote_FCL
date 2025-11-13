@@ -9,13 +9,10 @@
             id="layout" 
             stateChange=".onStateChanged"
             backgroundDesign="Translucent"
-            >
+            layout="{RRViewModel>/layout}"            >
             <f:beginColumnPages>
                 <mvc:XMLView id="_IDGenXMLView1"  viewName="project1.view.Remote"/>
-            </f:beginColumnPages>             
-            <f:midColumnPages>
-                <!-- <mvc:XMLView id="_IDGenXMLView2"  viewName="project1.view.Request"/> -->
-            </f:midColumnPages> 
+            </f:beginColumnPages> 
         </f:FlexibleColumnLayout>
 
     </m:Page>

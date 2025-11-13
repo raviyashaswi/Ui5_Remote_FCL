@@ -72,7 +72,7 @@
           "earlyRequests": true
         }
       },
-      "IncentiveItemModel": {
+      "RemoteModel": {
         "type": "sap.ui.model.json.JSONModel",
         "settings": {"defaultBindingMode": "TwoWay"}
       }  
@@ -105,28 +105,28 @@
         },
         {
           "name": "RRView",
-          "pattern": "Remote/{eID}",
+          "pattern": "RR/{eID}",
           "target": [
             "TargetRR"
                     ]
         },
         {
           "name": "RemoteView",
-          "pattern": "",
+          "pattern": "Remote/{eID}",
           "target": [
             "TargetRemote"
                     ]
         },
         {
           "name":"PHView",
-          "pattern":"",
+          "pattern":"Holiday/{_}",
           "target":[
             "TargetPH"
                     ]
         },
         {
           "name": "RequestView",
-          "pattern":"Request/{id}",
+          "pattern":"Request/{ID}/{employee_ID}",
           "target":[
             "TargetRequest"
           ]
@@ -148,14 +148,14 @@
         "TargetRemote": {
           "id": "Remote",
           "name": "Remote",
-          "viewType": "XML",
-          "transition":"slide"
+          "viewType": "XML"
         },
         "TargetPH":{
           "id":"PH",
           "name":"PH",
           "viewType": "XML",
           "transition":"slide"
+
         },
         "TargetRequest":{
           "id": "Request",

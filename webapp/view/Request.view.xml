@@ -1,81 +1,62 @@
-<mvc:View xmlns:form="sap.ui.layout.form" controllerName="project1.controller.Request" displayBlock="true"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-xmlns:f="sap.ui.layout.form"    >
-    <Page id="_IDGenPage">
-    <headerContent>
-      <Bar id="_IDGenBar1" >
-         <contentLeft>
-            <Button id="_IDGenButton4" 
-            icon="sap-icon://nav-back" 
-            tooltip="Options" 
-            press=".onHeaderButtonPress" />
-         </contentLeft>
-      </Bar>
-    </headerContent>
-   <content>
+<mvc:View controllerName="project1.controller.Request"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <Page id="_IDGenPage3" floatingFooter="true">
+    <content>
+      <ObjectHeader id="_IDGenObjectHeader1" icon="sap-icon://employee" responsive="true" title="{RemoteModel>/name}" intro="{RemoteModel>/role/rName}" number="{RemoteModel>ID}">
+        <statuses>
+          <ObjectStatus id="_IDGenObjectStatus4" 
+                            text="{
+                                path: 'RemoteModel>/remote/0/status',
+                                formatter: '.formatter.statusText'
+                            }" 
+                            icon="{
+                                path: 'RemoteModel>/remote/0/status',
+                                formatter: '.formatter.statusIcon'
+                            }"
+                            class="sapMObjectStatusLarge" 
+                            state="{
+                                path: 'RemoteModel>/remote/0/status',
+                                formatter: '.formatter.statusColor'
+                            }"/>
+        </statuses>
+        <attributes>
+          <ObjectAttribute id="_IDGenObjectAttribute" title="Remote Working Days" text="{RemoteModel>/allocation/rDays}/{RemoteModel>/role/tDays}"/>
+        </attributes>
+        <attributes>
+          <ObjectAttribute id="_IDGenObjectAttribute1" title="Remote Working Hours" text="{RemoteModel>/allocation/rHours}/{RemoteModel>/role/tHours}" />
+        </attributes>
+      </ObjectHeader>
 
-      <VBox id="_IDGenVBox1" class="sapUiSmallMargin sapUiNoContentPadding">
+      <l:SimpleForm id="RemoteForm" editable="false" layout="ResponsiveGridLayout">
 
-        <!-- Header summary -->
-        <ObjectHeader id="_IDGenObjectHeader"
-          title="{employee_ID}"
-          number="{status}"
-          numberUnit="Status"
-          intro="Request Summary"
-          />
-
-        <!-- Details form -->
-        <f:SimpleForm
-          id="requestForm"
-          editable="false"
-          layout="ResponsiveGridLayout"
-          labelSpanM="4"
-          emptySpanM="1"
-          columnsM="2"
-          class="sapUiSmallMarginTop">
-
-          <Label id="_IDGenLabel" text="Request ID" />
-          <Text id="_IDGenText1" text="{ID}" />
-
-          <Label id="_IDGenLabel1" text="Employee ID" />
-          <Text id="_IDGenText3" text="{employee_ID}" />
-
-          <Label id="_IDGenLabel2" text="From Date" />
-          <Text id="_IDGenText24" text="{fromDate}" />
-
-          <Label id="_IDGenLabel3" text="To Date" />
-          <Text id="_IDGenText26" text="{toDate}" />
-
-          <Label id="_IDGenLabel4" text="Days" />
-          <Text id="_IDGenText27" text="{days}" />
-
-          <Label id="_IDGenLabel5" text="Hours" />
-          <Text id="_IDGenText28" text="{hours}" />
-
-          <Label id="_IDGenLabel6" text="Destination" />
-          <Text id="_IDGenText29" text="{destination}" />
-
-          <Label id="_IDGenLabel7" text="Remote" />
-          <Text id="_IDGenText30" text="{remote}" />
-
-          <Label id="_IDGenLabel8" text="Remarks" />
-          <Text id="_IDGenText31" text="{remarks}" />
-
-          <Label id="_IDGenLabel9" text="Created By" />
-          <Text id="_IDGenText32" text="{createdBy}" />
-
-          <Label id="_IDGenLabel10" text="Created At" />
-          <Text id="_IDGenText33" text="{createdAt}" />
-
-          <Label id="_IDGenLabel11" text="Modified By" />
-          <Text id="_IDGenText34" text="{modifiedBy}" />
-
-          <Label id="_IDGenLabel12" text="Modified At" />
-          <Text id="_IDGenText35" text="{modifiedAt}" />
-
-        </f:SimpleForm>
-      </VBox>
+        <Label id="_IDGenLabel1" text="Remote ID"/>
+        <Text id="_IDGenText1" text="{RemoteModel>/remote/0/ID}" />
+        <Label id="_IDGenLabel2" text="From Date"/>
+        <Text id="_IDGenText3" text="{RemoteModel>/remote/0/fromDate}" />
+        <Label id="_IDGenLabel3" text="To Date"/>
+        <Text id="_IDGenText24" text="{RemoteModel>/remote/0/toDate}" />
+        <Label id="_IDGenLabel4" text="Days"/>
+        <Text id="_IDGenText26" text="{RemoteModel>/remote/0/days}" />
+        <Label id="_IDGenLabel5" text="Hours"/>
+        <Text id="_IDGenText27" text="{RemoteModel>/remote/0/hours}" />
+        <Label id="_IDGenLabel6" text="Remarks"/>
+        <Text id="_IDGenText28" text="{RemoteModel>/remote/0/remarks}" />
+        <Label id="_IDGenLabel7" text="Status"/>
+        <Text id="_IDGenText29" text="{
+                                path: 'RemoteModel>/remote/0/status',
+                                formatter: '.formatter.statusText'
+                            }"  />
+      </l:SimpleForm>
     </content>
-    </Page>
+    <footer>
+      <OverflowToolbar id="_IDGenOverflowToolbar2" visible="{= ${RemoteModel>/remote/0/status} === 0 ? true : false }">
+        <ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+        <Button id="_IDGenButton4" type="Accept" text="Approve" press=".Approve" />
+        <Button id="_IDGenButton5" type="Reject" text="Reject" press=".Reject"/>
+      </OverflowToolbar>
+    </footer>
+  </Page>
 </mvc:View>

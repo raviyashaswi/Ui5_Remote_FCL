@@ -9,10 +9,10 @@ sap.ui.define([
       async onItemPress(oEvent){
         const oTableItem = oEvent.getSource();
             var oContext = oTableItem.getBindingContext();
-            var sRequestCode = oContext.getObject();
-            console.log("Selected Request Code: " + sRequestCode.ID)
+            var sE = oContext.getObject();
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("RRView", { eID: sRequestCode.ID});
+            oRouter.navTo("RemoteView", { eID: sE.ID});
+            console.log("Selected Request Code: " + sE.ID);
       }
   });
 });
